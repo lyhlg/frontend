@@ -24,10 +24,11 @@ module.exports = {
 
   rules: {
     'max-len': ['error', 120],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     '@typescript-eslint/explicit-member-accessibility': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
     'react/jsx-one-expression-per-line': [
-      '<disabled>',
+      2,
       { allow: 'none' | 'literal' | 'single-child' },
     ],
     'no-confusing-arrow': ['error', { allowParens: true }],

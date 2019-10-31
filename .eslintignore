@@ -1,0 +1,5 @@
+dist/*
+node_modules/*
+webpack.*.*
+src/**/__tests__/**
+/src/store/configuresStore.ts

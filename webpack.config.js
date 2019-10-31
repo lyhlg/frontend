@@ -1,53 +1,54 @@
-const path = require("path");
-const webpack = require("webpack");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 function production(env) {
   return {
-    entry: path.join(__dirname, "src", "index.js"),
+    entry: path.join(__dirname, 'build', 'index.js'),
     output: {
-      path: path.join(__dirname, "dist"),
-      filename: "[name].[hash].js",
-      chunkFilename: "[name].[chunkhash].js",
-      publicPath: "/"
+      path: path.join(__dirname, 'dist'),
+      filename: '[name].[hash].js',
+      chunkFilename: '[name].[chunkhash].js',
+      publicPath: '/',
     },
+    devtool: 'source-map',
     resolve: {
-      extensions: [".jsx", ".js", ".json"],
+      extensions: ['tsx', 'ts', '.jsx', '.js', '.json'],
       alias: {
-        "@": path.resolve(__dirname, "src/"),
-        "@image": path.resolve(__dirname, "public/img/"),
-        "@pages": path.resolve(__dirname, "src/pages/"),
-        "@components": path.resolve(__dirname, "src/components/"),
-        "@store": path.resolve(__dirname, "submodule/store/"),
-        "@api": path.resolve(__dirname, "submodule/api/"),
-        "@util": path.resolve(__dirname, "submodule/util/"),
-        "@config": path.resolve(__dirname, "submodule/config/")
-      }
+        '@': path.resolve(__dirname, 'build/src/'),
+        '@image': path.resolve(__dirname, 'build/public/img/'),
+        '@pages': path.resolve(__dirname, 'build/src/pages/'),
+        '@components': path.resolve(__dirname, 'build/src/components/'),
+        // '@store': path.resolve(__dirname, 'submodule/store/'),
+        // '@api': path.resolve(__dirname, 'submodule/api/'),
+        // '@util': path.resolve(__dirname, 'submodule/util/'),
+        // '@config': path.resolve(__dirname, 'submodule/config/'),
+      },
     },
     optimization: {
       splitChunks: {
-        chunks: "async",
+        chunks: 'async',
         minSize: 30000,
         maxSize: 0,
         minChunks: 1,
         maxAsyncRequests: 5,
         maxInitialRequests: 3,
-        automaticNameDelimiter: "~",
+        automaticNameDelimiter: '~',
         name: true,
         cacheGroups: {
           vendors: {
             test: /[\\/]node_modules[\\/]/,
-            priority: -10
+            priority: -10,
           },
           default: {
             minChunks: 2,
             priority: -20,
-            reuseExistingChunk: true
-          }
-        }
-      }
+            reuseExistingChunk: true,
+          },
+        },
+      },
     },
     module: {
       rules: [
@@ -55,74 +56,80 @@ function production(env) {
           test: /\.html$/,
           use: [
             {
-              loader: "html-loader",
-              options: { minimize: true }
-            }
-          ]
+              loader: 'html-loader',
+              options: { minimize: true },
+            },
+          ],
         },
         {
           test: /\.css$/,
-          use: ["style-loader", "css-loader?sourceMap"]
+          use: ['style-loader', 'css-loader?sourceMap'],
         },
         {
           test: /.(js|jsx)$/,
           exclude: /node_modules/,
           use: {
-            loader: "babel-loader"
-          }
+            loader: 'babel-loader',
+          },
         },
-        // {
-        //   test: /\.js$/,
-        //   exclude: /node_modules/,
-        //   use: ["eslint-loader"]
-        // },
+        {
+          test: /.(ts|tsx)$/,
+          use: {
+            loader: 'ts-loader',
+          },
+        },
+        {
+          test: /\.ts$/,
+          exclude: /node_modules/,
+          use: ['eslint-loader'],
+        },
         {
           test: /\.svg$/,
           use: [
             {
-              loader: "babel-loader"
+              loader: 'babel-loader',
             },
             {
-              loader: "react-svg-loader",
+              loader: 'react-svg-loader',
               options: {
-                name: "[path][name].[ext]",
-                jsx: true // true outputs JSX tags
-              }
-            }
-          ]
+                name: '[path][name].[ext]',
+                jsx: true, // true outputs JSX tags
+              },
+            },
+          ],
         },
         {
           test: /.(woff|woff2|jpg|jpeg|png|gif|mp3)$/,
           use: [
             {
-              loader: "file-loader",
+              loader: 'file-loader',
               options: {
-                name: "[path][name]-[hash:8].[ext]"
-              }
-            }
-          ]
-        }
-      ]
+                name: '[path][name]-[hash:8].[ext]',
+              },
+            },
+          ],
+        },
+      ],
     },
     plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
-        title: "Development",
-        filename: "index.html",
-        template: path.join(__dirname, "public", "index.html"),
+        title: 'Development',
+        filename: 'index.html',
+        template: path.join(__dirname, 'public', 'index.html'),
         // favicon: "public/img/map_favicon.ico",
         showErrors: true,
         minify: {
           collapseWhitespace: true,
           minifyCSS: true,
           minifyJS: true,
-          removeComments: true
-        }
+          removeComments: true,
+        },
       }),
       new webpack.DefinePlugin({
-        "process.env.NODE_ENV": JSON.stringify(env)
-      })
-    ]
+        'process.env.NODE_ENV': JSON.stringify(env),
+      }),
+    ],
   };
 }
 

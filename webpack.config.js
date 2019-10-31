@@ -7,20 +7,24 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 function production(env) {
   return {
     entry: path.join(__dirname, 'build', 'index.js'),
+    mode: 'development',
     output: {
       path: path.join(__dirname, 'dist'),
       filename: '[name].[hash].js',
       chunkFilename: '[name].[chunkhash].js',
       publicPath: '/',
     },
+    devServer: {
+      port: 20000,
+    },
     devtool: 'source-map',
     resolve: {
       extensions: ['tsx', 'ts', '.jsx', '.js', '.json'],
       alias: {
-        '@': path.resolve(__dirname, 'build/src/'),
-        '@image': path.resolve(__dirname, 'build/public/img/'),
-        '@pages': path.resolve(__dirname, 'build/src/pages/'),
-        '@components': path.resolve(__dirname, 'build/src/components/'),
+        '~': path.resolve(__dirname, 'build/'),
+        '~image': path.resolve(__dirname, 'public/img/'),
+        '~pages': path.resolve(__dirname, 'build/pages/'),
+        '~components': path.resolve(__dirname, 'build/components/'),
         // '@store': path.resolve(__dirname, 'submodule/store/'),
         // '@api': path.resolve(__dirname, 'submodule/api/'),
         // '@util': path.resolve(__dirname, 'submodule/util/'),
@@ -65,13 +69,13 @@ function production(env) {
           test: /\.css$/,
           use: ['style-loader', 'css-loader?sourceMap'],
         },
-        {
-          test: /.(js|jsx)$/,
-          exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-          },
-        },
+        // {
+        //   test: /.(js|jsx)$/,
+        //   exclude: /node_modules/,
+        //   use: {
+        //     loader: 'babel-loader',
+        //   },
+        // },
         {
           test: /.(ts|tsx)$/,
           use: {

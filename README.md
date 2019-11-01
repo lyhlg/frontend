@@ -5,7 +5,7 @@ fullstack 웹을 위한 frontend 구성
 - Frontend와 backend를 모두 구성하여 개발을 진행한다.
 - 추후에는 RN을 통해서 해당 앱을 구동해 보는것 까지가 목표다.
 
-###Frontend Stack
+### Frontend Stack
 1. React / React-Router
 2. Redux / Redux-saga
 3. Babel

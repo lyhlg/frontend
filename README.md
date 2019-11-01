@@ -20,7 +20,7 @@ fullstack 웹을 위한 frontend 구성
 4. GraphQL + Restful API
 
 ### SSR
-NextJS
+1. NextJS
 
 ### 공통
 1. Typescript

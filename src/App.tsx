@@ -1,27 +1,25 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
+
+import { IProps } from './types';
 
 import Header from '~pages/header/Header';
 import Home from '~pages/Home';
 import Test from '~pages/Test';
 
-interface Props {}
-
-const App: React.FC<Props> = () => (
-  <div>
-    <Header />
+const App: React.FC<IProps> = () => {
+  return (
     <div>
-      <Switch>
-        <Route exact path="/" render={() => <Home name={'Root!'} />} />
-        <Route path="/test" render={() => <Test name={'Test!'} />} />
-        {/* <Route
-          path="/project"
-          render={() => <div>hihi<div>}
-        />
-          <Route component={() => <div>nomatch</div>} /> */}
-      </Switch>
+      <Header />
+      <div>
+        <Switch>
+          <Route exact path="/" render={() => <Home name="Root!" />} />
+          <Route path="/test" render={() => <Test name="Test!" />} />
+          <Redirect path="*" to="/" />
+        </Switch>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
-export default App;
+export default withRouter(App);

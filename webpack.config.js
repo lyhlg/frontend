@@ -69,24 +69,22 @@ function production(env) {
           test: /\.css$/,
           use: ['style-loader', 'css-loader?sourceMap'],
         },
-        // {
-        //   test: /.(js|jsx)$/,
-        //   exclude: /node_modules/,
-        //   use: {
-        //     loader: 'babel-loader',
-        //   },
-        // },
         {
-          test: /.(ts|tsx)$/,
+          test: /.(js|jsx)$/,
+          exclude: /node_modules/,
           use: {
-            loader: 'ts-loader',
+            loader: 'babel-loader',
           },
         },
         {
-          test: /\.ts$/,
-          exclude: /node_modules/,
-          use: ['eslint-loader'],
+          test: /.(ts|tsx)$/,
+          use: ['ts-loader', 'eslint-loader'],
         },
+        // {
+        //   test: /\.ts$/,
+        //   exclude: /node_modules/,
+        //   use: ['eslint-loader'],
+        // },
         {
           test: /\.svg$/,
           use: [

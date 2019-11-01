@@ -4,6 +4,7 @@ import styled, { css, IStyledComponent } from 'styled-components';
 import { IText, IProps } from './types';
 
 const identity = <T extends any>(arg: T): T => {
+  const a: string = 3;
   return arg;
 };
 

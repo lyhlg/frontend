@@ -14,6 +14,8 @@
     "outDir": "./build" /* Redirect output structure to the directory. */,
     "moduleResolution": "node",
     "baseUrl": ".",
+    // "declaration": true,
+    // "declarationDir": "src/@types",
     "paths": {
       "~/*": ["src/*"],
       "~image/*": ["public/img/*"],

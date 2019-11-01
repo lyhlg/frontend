@@ -1,11 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styled, { css } from 'styled-components';
-import { IStyle, IText, IHeaderProps } from './types';
+import styled, { css, IStyledComponent } from 'styled-components';
+import { IText, IProps } from './types';
 
-const Header: React.FC<IHeaderProps> = () => (
+const identity = <T extends any>(arg: T): T => {
+  return arg;
+};
+
+const Header: React.FC<IProps> = () => (
   <S.Container>
     <S.ListWrapper>
+      {identity('hihi')}
       <li>
         <NavLink className="home" to="/">
           <S.Text isLarge>Home</S.Text>
@@ -18,7 +23,7 @@ const Header: React.FC<IHeaderProps> = () => (
   </S.Container>
 );
 
-const S: IStyle = {};
+const S: IStyledComponent = {};
 S.Container = styled.div``;
 S.ListWrapper = styled.ul``;
 S.Text = styled.p`

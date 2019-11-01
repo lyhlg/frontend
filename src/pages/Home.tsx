@@ -6,7 +6,7 @@ interface HomeProps {
 
 interface HomeState {}
 
-class Home extends React.Component<HomeProps, HomeState> {
+class Home extends React.PureComponent<HomeProps, HomeState> {
   render() {
     const { name } = this.props;
     return <div>{name}</div>;

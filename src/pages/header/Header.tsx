@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled, { css, IStyledComponent } from 'styled-components';
+
 import { IText, IProps } from './types';
 
-const identity = <T extends any>(arg: T): T => {
-  const a: string = 3;
+const identity = <T extends {}>(arg: T): T => {
+  // const a: string = 3;
   return arg;
 };
 

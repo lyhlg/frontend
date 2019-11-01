@@ -6,7 +6,7 @@ interface TestProps {
 
 interface TestState {}
 
-class Test extends React.Component<TestProps, TestState> {
+class Test extends React.PureComponent<TestProps, TestState> {
   // state = { :  }
   render() {
     const { name } = this.props;

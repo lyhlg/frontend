@@ -1,44 +1,29 @@
 module.exports = {
+  extends: [
+    'airbnb-typescript',
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
+  ],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   env: {
     browser: true,
-    node: true,
+    jasmine: true,
+    jest: true,
   },
-
-  parser: '@typescript-eslint/parser', // Specifies the ESLint parser
-
-  extends: [
-    'airbnb',
-    'plugin:react/recommended', // Uses the recommended rules from @eslint-plugin-react
-    'plugin:@typescript-eslint/recommended', // Uses the recommended rules from @typescript-eslint/eslint-plugin
-    'prettier/@typescript-eslint', // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
-    'plugin:prettier/recommended', // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
-  ],
-
-  parserOptions: {
-    ecmaVersion: 2019,
-    sourceType: 'module', // Allows for the use of imports
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-
   rules: {
-    'max-len': ['error', 120],
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
-    '@typescript-eslint/explicit-member-accessibility': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
-    'react/jsx-one-expression-per-line': [
-      2,
-      { allow: 'none' | 'literal' | 'single-child' },
-    ],
+    '@typescript-eslint/interface-name-prefix': 0,
+    '@typescript-eslint/no-empty-interface': 0,
     'no-confusing-arrow': ['error', { allowParens: true }],
-    'react/prop-types': 0,
     'import/order': ['error', { 'newlines-between': 'always' }],
   },
-
   settings: {
     react: {
-      version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
+      pragma: 'React',
+      version: 'detect',
     },
     'import/resolver': {
       webpack: {
@@ -46,4 +31,5 @@ module.exports = {
       },
     },
   },
+  parser: '@typescript-eslint/parser',
 };

@@ -3,7 +3,7 @@ import 'styled-components';
 // and extend them!
 declare module 'styled-components' {
   export interface IStyledComponent {
-    [el: string]: StyledComponent<any, any>;
+    [el: string]: StyledComponent;
   }
 
   export interface DefaultTheme {

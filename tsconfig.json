@@ -20,11 +20,11 @@
       "~/*": ["src/*"],
       "~image/*": ["public/img/*"],
       "~pages/*": ["src/pages/*"],
-      "~components/*": ["src/components/*"]
-      // "@store/*": ["submodule/store/*"],
-      // "@api/*": ["submodule/api/*"],
-      // "@util/*": ["submodule/util/*"],
-      // "@config/*": ["submodule/config/*"]
+      "~components/*": ["src/components/*"],
+      "~store/*": ["src/store/*"],
+      "~api/*": ["src/api/*"],
+      "~util/*": ["src/util/*"]
+      // "~config/*": ["src/config/*"]
     },
     "watch": true,
     "sourceMap": true /* Generates corresponding '.map' file. */,

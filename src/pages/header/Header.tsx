@@ -4,10 +4,12 @@ import styled, { css, IStyledComponent } from 'styled-components';
 
 import { IText, IProps } from './types';
 
-const identity = <T extends {}>(arg: T): T => {
+export const identity = <T extends {}>(arg: T): T => {
   // const a: string = 3;
   return arg;
 };
+
+export const a = (num: number): number => num;
 
 const Header: React.FC<IProps> = () => (
   <S.Container>

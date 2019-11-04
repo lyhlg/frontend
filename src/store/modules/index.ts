@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 import counter from '~store/modules/counter';
-import todo from '~store/modules/todo';
+import todo from '~store/modules/todos';
 
 const rootReducer = combineReducers({
   counter,

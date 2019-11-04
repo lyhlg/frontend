@@ -20,6 +20,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 0,
     'no-confusing-arrow': ['error', { allowParens: true }],
     'import/order': ['error', { 'newlines-between': 'always' }],
+    'react/prop-types': 0,
   },
   settings: {
     react: {

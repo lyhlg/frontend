@@ -1,15 +1,18 @@
+import { Record } from 'immutable';
 import { createReducer } from 'typesafe-actions';
 
 import { REQUEST, SUCCESS, FAILURE } from './actions';
 import { SampleAction, SampleState } from './types';
 
-const initialState: SampleState = {
+const initial: SampleState = {
   list: [
     { id: 1, userId: 1, title: '안녕', completed: false },
     { id: 2, userId: 3, title: '구래 안뇽', completed: true },
   ],
   isRequest: false,
 };
+
+const initialState = Record(initial)();
 
 const sample = createReducer<SampleState, SampleAction>(initialState, {
   [REQUEST]: state => ({

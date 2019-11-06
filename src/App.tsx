@@ -5,7 +5,7 @@ import { IProps } from './types';
 
 import Header from '~pages/header/Header';
 import Home from '~pages/Home';
-import Test from '~pages/Test';
+import Sample from '~/pages/Sample';
 
 const App: React.FC<IProps> = () => {
   return (
@@ -14,7 +14,7 @@ const App: React.FC<IProps> = () => {
       <div>
         <Switch>
           <Route exact path="/" render={() => <Home name="Root!" />} />
-          <Route path="/test" render={() => <Test name="Test!" />} />
+          <Route path="/test" render={() => <Sample name="Test!" />} />
           <Redirect path="*" to="/" />
         </Switch>
       </div>

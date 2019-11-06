@@ -16,6 +16,7 @@ function production(env) {
     },
     devServer: {
       port: 20000,
+      historyApiFallback: true,
     },
     devtool: 'source-map',
     resolve: {

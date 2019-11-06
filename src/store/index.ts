@@ -1,25 +1,18 @@
-import { createStore, compose } from 'redux';
-// import { createStore, applyMiddleware, compose } from 'redux';
-// import createSagaMiddleware from 'redux-saga';
+import { createStore, compose, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 
 import modules from './modules';
-// import rootSaga from './sagas';
+import rootSaga from './sagas';
 
-/* eslint-disable no-underscore-dangle */
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-/* eslint-enable no-underscore-dangle */
+const composeEnhancers =
+  (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export default function configureStore() {
-  const store = createStore(modules, composeEnhancers());
+  const sagaMiddleware = createSagaMiddleware();
+  const store = createStore(
+    modules,
+    composeEnhancers(applyMiddleware(sagaMiddleware)),
+  );
+  sagaMiddleware.run(rootSaga);
   return store;
 }
-
-// export default function configureStore() {
-//   const sagaMiddleware = createSagaMiddleware();
-//   const store = createStore(
-//     modules,
-//     composeEnhancers(applyMiddleware(sagaMiddleware)),
-//   );
-//   // sagaMiddleware.run(rootSaga);
-//   return store;
-// }

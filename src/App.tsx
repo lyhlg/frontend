@@ -3,9 +3,9 @@ import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 
 import { IProps } from './types';
 
-import Header from '~pages/header/Header';
 import Home from '~pages/Home';
-import Sample from '~/pages/Sample';
+import Sample from '~pages/Sample';
+import Header from '~components/header/Header';
 
 const App: React.FC<IProps> = () => {
   return (

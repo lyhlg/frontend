@@ -1,8 +1,7 @@
 import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-import { RootState } from '~store/modules';
-import { addTodo, toggleTodo, removeTodo } from '~/store/modules/todos';
+import { RootState } from '@store/modules';
+import { addTodo, toggleTodo, removeTodo } from '@/store/modules/todos';
 
 function useTodos() {
   const todos = useSelector((state: RootState) => state.todo);

@@ -14,17 +14,16 @@
     "outDir": "./build" /* Redirect output structure to the directory. */,
     "moduleResolution": "node",
     "baseUrl": ".",
-    // "declaration": true,
-    // "declarationDir": "src/@types",
+    "typeRoots": ["./@types", "./node_modules/@types"],
     "paths": {
-      "~/*": ["src/*"],
-      "~image/*": ["public/img/*"],
-      "~pages/*": ["src/pages/*"],
-      "~components/*": ["src/components/*"],
-      "~store/*": ["src/store/*"],
-      "~api/*": ["src/api/*"],
-      "~util/*": ["src/util/*"]
-      // "~config/*": ["src/config/*"]
+      "@/*": ["src/*"],
+      "@image/*": ["public/img/*"],
+      "@pages/*": ["src/pages/*"],
+      "@components/*": ["src/components/*"],
+      "@store/*": ["src/store/*"],
+      "@api/*": ["src/api/*"],
+      "@util/*": ["src/util/*"]
+      // "@cㅅonfig/*": ["src/config/*"]
     },
     "watch": true,
     "sourceMap": true /* Generates corresponding '.map' file. */,

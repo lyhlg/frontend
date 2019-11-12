@@ -1,8 +1,7 @@
 import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-import { RootState } from '~store/modules';
-import { request } from '~store/modules/sample';
+import { RootState } from '@store/modules';
+import { request } from '@store/modules/sample';
 
 function useCounter() {
   const sampleStore = useSelector((state: RootState) => state.sample);

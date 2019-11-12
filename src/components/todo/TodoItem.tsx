@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { IStyledComponent } from 'styled-components';
 
-import { Todo } from '~store/modules/todos';
-import { useTodoActions } from '~/hooks/useTodos';
+import { Todo } from '@store/modules/todos';
+import { useTodoActions } from '@/hooks/useTodos';
 
 // import './TodoItem.css';
 

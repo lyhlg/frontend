@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useCounter } from '~/hooks/useSample';
+import { useCounter } from '@/hooks/useSample';
 
 interface SampleProps {
   name: string;

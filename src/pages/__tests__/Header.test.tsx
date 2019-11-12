@@ -1,7 +1,7 @@
 // import React from 'react';
 // import renderer from 'react-test-renderer';
 // import Header from './Header';
-import { identity } from '~/components/header/Header';
+import { identity } from '@/components/header/Header';
 
 describe('Header', () => {
   test('two plus two is four', () => {

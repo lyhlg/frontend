@@ -1,8 +1,7 @@
 import React from 'react';
-
-import Counter from '~components/Counter';
-import TodoInsert from '~/components/Todo/TodoInsert';
-import TodoList from '~/components/Todo/TodoList';
+import Counter from '@components/Counter';
+import TodoInsert from '@components/todo/TodoInsert';
+import TodoList from '@components/todo/TodoList';
 
 interface HomeProps {
   name: string;

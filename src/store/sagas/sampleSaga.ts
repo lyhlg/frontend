@@ -1,7 +1,7 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 
-import { fetchSample } from '~api/sample';
-import { request, success, failure } from '~store/modules/sample/actions';
+import { fetchSample } from '@api/sample';
+import { request, success, failure } from '@store/modules/sample/actions';
 
 function* handleRequest() {
   try {
